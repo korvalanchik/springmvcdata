@@ -1,4 +1,3 @@
---DROP TABLE IF EXISTS note;
 -- ----------------------------
 -- Table structure for note
 -- ----------------------------

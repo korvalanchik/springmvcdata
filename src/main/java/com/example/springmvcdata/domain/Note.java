@@ -33,11 +33,11 @@ public class Note {
     private String content;
 
     @CreatedDate
-    @Column(nullable = true, updatable = false)
+    @Column(updatable = false)
     private OffsetDateTime dateCreated;
 
     @LastModifiedDate
-    @Column(nullable = true)
+    @Column
     private OffsetDateTime lastUpdated;
 
 }
