@@ -5,6 +5,6 @@ CREATE TABLE note (
     id bigint NOT NULL PRIMARY KEY AUTO_INCREMENT,
     title varchar(100) NOT NULL,
     content varchar(500) NOT NULL,
-    createddate datetime,
-    lastmodifieddate datetime
+    date_created datetime,
+    last_updated datetime
 );

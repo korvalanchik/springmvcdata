@@ -4,6 +4,9 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.OffsetDateTime;
 
 
 @Getter
@@ -19,5 +22,9 @@ public class NoteDTO {
     @NotNull
     @Size(max = 255)
     private String content;
+
+    @DateTimeFormat(fallbackPatterns = "DD-mm-YY")
+    private OffsetDateTime dateCreated;
+
 
 }

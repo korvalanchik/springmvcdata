@@ -52,12 +52,14 @@ public class NoteService {
         noteDTO.setId(note.getId());
         noteDTO.setTitle(note.getTitle());
         noteDTO.setContent(note.getContent());
+        noteDTO.setDateCreated(note.getDateCreated());
         return noteDTO;
     }
 
     private Note mapToEntity(final NoteDTO noteDTO, final Note note) {
         note.setTitle(noteDTO.getTitle());
         note.setContent(noteDTO.getContent());
+        note.setDateCreated(noteDTO.getDateCreated());
         return note;
     }
 

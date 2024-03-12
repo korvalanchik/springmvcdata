@@ -18,6 +18,7 @@
                     <thead>
                         <tr>
                             <th scope="col">[[#{note.id.label}]]</th>
+                            <th scope="col">[[#{note.datecreated.label}]]</th>
                             <th scope="col">[[#{note.title.label}]]</th>
                             <th scope="col">[[#{note.content.label}]]</th>
                             <th><!-- --></th>
@@ -26,6 +27,7 @@
                     <tbody>
                         <tr th:each="note : ${notes}">
                             <td>[[${note.id}]]</td>
+                            <td th:text="${note.dateCreated}"></td>
                             <td>[[${note.title}]]</td>
                             <td>[[${note.content}]]</td>
                             <td>
