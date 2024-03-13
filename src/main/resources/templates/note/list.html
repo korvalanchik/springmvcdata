@@ -27,7 +27,7 @@
                     <tbody>
                         <tr th:each="note : ${notes}">
                             <td>[[${note.id}]]</td>
-                            <td th:text="${note.dateCreated}"></td>
+                            <td>[[${note.dateCreated}]]</td>
                             <td>[[${note.title}]]</td>
                             <td>[[${note.content}]]</td>
                             <td>

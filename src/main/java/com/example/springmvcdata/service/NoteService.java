@@ -4,6 +4,8 @@ import com.example.springmvcdata.domain.Note;
 import com.example.springmvcdata.model.NoteDTO;
 import com.example.springmvcdata.repos.NoteRepository;
 import com.example.springmvcdata.util.NotFoundException;
+
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -52,14 +54,16 @@ public class NoteService {
         noteDTO.setId(note.getId());
         noteDTO.setTitle(note.getTitle());
         noteDTO.setContent(note.getContent());
-        noteDTO.setDateCreated(note.getDateCreated());
+        noteDTO.setDateCreated(note.getDateCreated().format(DateTimeFormatter.ofPattern("hh:mm dd-MM-yyyy")));
+
+
         return noteDTO;
     }
 
     private Note mapToEntity(final NoteDTO noteDTO, final Note note) {
         note.setTitle(noteDTO.getTitle());
         note.setContent(noteDTO.getContent());
-        note.setDateCreated(noteDTO.getDateCreated());
+//        note.setDateCreated(noteDTO.getDateCreated());
         return note;
     }
 
