@@ -28,39 +28,39 @@ public class Note {
     @GeneratedValue(generator = "long")
     private Long id;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 200)
     private String title;
 
     @Column(nullable = false)
     private String content;
 
     @CreatedDate
-    @Column(updatable = false)
+    @Column(nullable = false, updatable = false)
     private OffsetDateTime dateCreated;
 
     @LastModifiedDate
-    @Column
+    @Column(nullable = false)
     private OffsetDateTime lastUpdated;
 
-    // Custom method to format OffsetDateTime using DateTimeFormatter
-    public String getFormattedDateCreated() {
-        return formatDate(dateCreated);
-    }
-
-    // Custom method to format OffsetDateTime using DateTimeFormatter
-    public String getFormattedLastUpdated() {
-        return formatDate(lastUpdated);
-    }
-
-    // Utility method to format OffsetDateTime using DateTimeFormatter
-    private String formatDate(OffsetDateTime offsetDateTime) {
-        if (offsetDateTime == null) {
-            return null;
-        }
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yy HH:mm:ss");
-        return offsetDateTime.format(formatter);
-    }
+//    // Custom method to format OffsetDateTime using DateTimeFormatter
+//    public String getFormattedDateCreated() {
+//        return formatDate(dateCreated);
+//    }
+//
+//    // Custom method to format OffsetDateTime using DateTimeFormatter
+//    public String getFormattedLastUpdated() {
+//        return formatDate(lastUpdated);
+//    }
+//
+//    // Utility method to format OffsetDateTime using DateTimeFormatter
+//    private String formatDate(OffsetDateTime offsetDateTime) {
+//        if (offsetDateTime == null) {
+//            return null;
+//        }
+//
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yy HH:mm:ss");
+//        return offsetDateTime.format(formatter);
+//    }
 
 
 }

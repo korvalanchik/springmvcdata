@@ -24,7 +24,7 @@ public class NoteDTO {
     private String content;
 
     @DateTimeFormat(fallbackPatterns = "DD-mm-YY")
-    private OffsetDateTime dateCreated;
+    private String dateCreated;
 
 
 }
