@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
- //  user has role USER and password is codejava. And the second user admin has role ADMIN with password is nimda.
 @Service
 public class UserService {
 
