@@ -26,15 +26,16 @@ public class SecurityConfig extends AbstractHttpConfigurer<SecurityConfig, HttpS
         http
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/note/**").authenticated() // Require authentication for /note/**
-                                .requestMatchers("/add-user").permitAll() // Allow access to /add-user without authentication
-                                .anyRequest().permitAll() // Permit all other requests
+                                .requestMatchers("/note/**").authenticated()
+                                .requestMatchers("/add-user").hasRole("Admin")
+                                .anyRequest().permitAll()
                 )
-                .formLogin(formLogin ->
-                        formLogin
-                                .loginPage("/login")
-                                .permitAll()
-                )
+//                .formLogin(formLogin ->
+//                        formLogin
+//                                .loginPage("/login")
+//                                .permitAll()
+//                )
+                .formLogin(withDefaults())
                 .logout(withDefaults())
                 .csrf().disable(); // Disable CSRF protection for simplicity in this example
 
