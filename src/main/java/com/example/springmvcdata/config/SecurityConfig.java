@@ -27,7 +27,7 @@ public class SecurityConfig extends AbstractHttpConfigurer<SecurityConfig, HttpS
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
                                 .requestMatchers("/note/**").authenticated()
-                                .requestMatchers("/add-user").hasRole("Admin")
+                                .requestMatchers("/add-user").hasRole("ADMIN")
                                 .anyRequest().permitAll()
                 )
 //                .formLogin(formLogin ->

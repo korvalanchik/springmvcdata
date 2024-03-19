@@ -7,7 +7,27 @@
     </head>
     <body>
         <div layout:fragment="content">
-            <h1 class="mb-4">[[#{home.index.headline}]]</h1>
+            <h1 class="mb-4" th:text="#{home.index.headline}"></h1>
+            <p th:text="#{home.index.helloUser} + ${username} + '!'" th:if="${username}"></p>
+
+            <div th:if="${isAuthenticated}">
+                <!-- Display username if authenticated -->
+                <p th:text="'Authenticated as ' + ${username}"></p>
+                <!-- Display logout button -->
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Logout"/>
+                </form>
+            </div>
+
+            <!-- Check if the user is not authenticated -->
+            <div th:unless="${isAuthenticated}">
+                <!-- Display login button -->
+                <form th:action="@{/login}" method="get">
+                    <input type="submit" value="Login"/>
+                </form>
+            </div>
+
+
             <p>[(#{home.index.text})]</p>
             <div class="col-md-4 mb-5">
                 <h4 class="mb-3">[[#{home.index.exploreEntities}]]</h4>

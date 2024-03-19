@@ -36,11 +36,8 @@ public class UserController {
 
     @PostMapping("/add-user")
     public ModelAndView addUser(@RequestParam String username, @RequestParam String password, @RequestParam String[] roles) {
-        // Encode the password before saving
         String encodedPassword = passwordEncoder.encode(password);
-        // Add the new user
         userService.addUser(username, encodedPassword, roles);
-        // Redirect to a success page
         return new ModelAndView("redirect:/");
     }
 }
