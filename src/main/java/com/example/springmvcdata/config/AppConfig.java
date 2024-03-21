@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 public class AppConfig {
     @Bean
     public DateTimeFormatter customDateTimeFormatter() {
-        return DateTimeFormatter.ofPattern("DD-MM-YY");
+        return DateTimeFormatter.ofPattern("DD-mm-YY");
     }
 
 }

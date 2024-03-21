@@ -24,7 +24,18 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarToggle">
                         <ul class="navbar-nav ms-auto">
-                            <li class="navbar-item">
+                            <li class="nav-item">
+                                <a class="nav-link" th:text="#{home.index.helloUser} + ${session.username} + '!'" th:if="${session.username}"></a>
+                            </li>
+                            <li class="nav-item">
+                                <div th:if="${session.isAuthenticated}">
+                                    <a th:href="@{/logout}" class="nav-link">[[#{navigation.logout}]]</a>
+                                </div>
+                                <div th:unless="${session.isAuthenticated}">
+                                    <a th:href="@{/login}" class="nav-link">[[#{navigation.login}]]</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
                                 <a th:href="@{/}" class="nav-link">[[#{navigation.home}]]</a>
                             </li>
                             <li class="navbar-item dropdown">

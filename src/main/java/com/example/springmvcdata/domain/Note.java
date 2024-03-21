@@ -1,19 +1,14 @@
 package com.example.springmvcdata.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
-
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.time.OffsetDateTime;
 
 
 @Entity
@@ -41,26 +36,6 @@ public class Note {
     @LastModifiedDate
     @Column(nullable = false)
     private OffsetDateTime lastUpdated;
-
-//    // Custom method to format OffsetDateTime using DateTimeFormatter
-//    public String getFormattedDateCreated() {
-//        return formatDate(dateCreated);
-//    }
-//
-//    // Custom method to format OffsetDateTime using DateTimeFormatter
-//    public String getFormattedLastUpdated() {
-//        return formatDate(lastUpdated);
-//    }
-//
-//    // Utility method to format OffsetDateTime using DateTimeFormatter
-//    private String formatDate(OffsetDateTime offsetDateTime) {
-//        if (offsetDateTime == null) {
-//            return null;
-//        }
-//
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yy HH:mm:ss");
-//        return offsetDateTime.format(formatter);
-//    }
 
 
 }

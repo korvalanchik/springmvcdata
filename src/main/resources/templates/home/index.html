@@ -7,30 +7,22 @@
     </head>
     <body>
         <div layout:fragment="content">
-            <h1 class="mb-4" th:text="#{home.index.headline}"></h1>
-            <p th:text="#{home.index.helloUser} + ${username} + '!'" th:if="${username}"></p>
-
-            <div th:if="${isAuthenticated}">
-                <!-- Display username if authenticated -->
-                <p th:text="'Authenticated as ' + ${username}"></p>
-                <!-- Display logout button -->
-                <form th:action="@{/logout}" method="post">
-                    <input type="submit" value="Logout"/>
-                </form>
-            </div>
-
-            <!-- Check if the user is not authenticated -->
+            <h1 class="mb-4" th:text="#{home.index.headline} + ', ' + ${username} + '!'" th:if="${username}"></h1>
+            <h1 class="mb-4" th:text="#{home.index.headline} + '!'" th:unless="${username}"></h1>
             <div th:unless="${isAuthenticated}">
-                <!-- Display login button -->
-                <form th:action="@{/login}" method="get">
-                    <input type="submit" value="Login"/>
-                </form>
+                <p>Please, log in</p>
             </div>
-
+            <div th:if="${authorities.contains('ROLE_ADMIN')}">
+                <p>You have ADMIN privileges.</p>
+                <div class="col-md-4 mb-5">
+                    <div class="list-group">
+                        <a th:href="@{/add-user}" class="list-group-item list-group-item-action">[[#{home.index.adduser}]]</a>
+                    </div>
+                </div>
+            </div>
 
             <p>[(#{home.index.text})]</p>
             <div class="col-md-4 mb-5">
-                <h4 class="mb-3">[[#{home.index.exploreEntities}]]</h4>
                 <div class="list-group">
                     <a th:href="@{/note/list}" class="list-group-item list-group-item-action">[[#{note.list.headline}]]</a>
                 </div>
